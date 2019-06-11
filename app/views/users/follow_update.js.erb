@@ -1,3 +1,6 @@
-$('a.follow[href*="<%= @user_id %>"]').replaceWith('<%= escape_javascript(render partial: "users/partials/follow", locals: {user: @user} ) %>');
-$('span[data*="followers_<%= @user_id %>"]').replaceWith('<%= escape_javascript(render partial: "users/partials/number_of_followers", locals: {amount: @user.followers_count, user_id: @user_id} ) %>');
+$('a.follow[href*="<%= @user_id %>"]')
+.replaceWith('<%= escape_javascript(render partial: "users/partials/follow", locals: {user: @user, following: @following} ) %>');
+console.log("<%= @following.include?(@user) %>")
+$('span[data*="followers_<%= @user_id %>"]')
+.replaceWith('<%= escape_javascript(render partial: "users/partials/number_of_followers", locals: {amount: @user.followers_count, user_id: @user_id} ) %>');
 $("#flash").html('<%= escape_javascript(render partial: "layouts/flashes" ) %>');

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @current_user = current_user
+    @following = get_followings
     @users = get_users
   end
 
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
     @user_id = params[:id]
     rel = current_user.follow(@user_id)
     @user = User.find(@user_id)
+    @following = current_user.following
     if rel.persisted?
       respond_to do |format|
         format.js {
@@ -26,6 +28,7 @@ class UsersController < ApplicationController
     @user_id = params[:id]
     rel = current_user.unfollow(@user_id)
     @user = User.find(@user_id)
+    @following = current_user.following
     if rel.destroyed?
       respond_to do |format|
         format.js {
@@ -49,6 +52,10 @@ class UsersController < ApplicationController
   end
 
   def get_users
-    User.includes(:group, :followers).limit(10).order('name ASC')
+    User.includes(:group).order('name ASC')
+  end
+
+  def get_followings
+    @current_user.following.includes(:followers)
   end
 end

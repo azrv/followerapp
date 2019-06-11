@@ -4,5 +4,5 @@
 </div>
 <div class="user-follow-menu">
   <%= render partial: "users/partials/number_of_followers", locals: {amount: user.followers_count, user_id: user.id} %>
-  <%= render partial: "users/partials/follow", locals: {user: user} %>
+  <%= render partial: "users/partials/follow", locals: {user: user, following: @following} %>
 </div>

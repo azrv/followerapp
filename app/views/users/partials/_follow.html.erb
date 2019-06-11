@@ -1,5 +1,5 @@
-<% unless @current_user == user %>
-  <% if user.followers.include?(@current_user) #todo %>
+<% unless current_user == user %>
+  <% if @following.include?(user) #todo %>
     <%= link_to unfollow_path(user.id), method: "POST", remote: true, class: "follow-link simple-button unfollow-button follow" do %>
       <span>Following</span>
     <% end %>
