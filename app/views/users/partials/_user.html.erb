@@ -1,0 +1,8 @@
+<div class="user-info">
+  <%= user.name %>
+  <%= user.group.name %>
+</div>
+<div class="user-follow-menu">
+  <%= render partial: "users/partials/number_of_followers", locals: {amount: user.followers_count, user_id: user.id} %>
+  <%= render partial: "users/partials/follow", locals: {user: user} %>
+</div>

@@ -1,0 +1,11 @@
+<% unless @current_user == user %>
+  <% if user.followers.include?(@current_user) #todo %>
+    <%= link_to unfollow_path(user.id), method: "POST", remote: true, class: "follow-link simple-button unfollow-button follow" do %>
+      <span>Following</span>
+    <% end %>
+  <% else %>
+    <%= link_to "Follow", follow_path(user.id), method: "POST", remote: true, class: "follow-link simple-button follow-button follow" %>
+  <% end %>
+<% else %>
+  <a class="follow-link">Me</a>
+<% end %>

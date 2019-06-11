@@ -1,0 +1,19 @@
+body {
+  background-color: #f9f9f9;
+  font-family: "Open Sans";
+  color: #2e2e2e;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
+  padding: 8px 10px;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}

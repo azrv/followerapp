@@ -1,0 +1,11 @@
+<div class="container">
+  <div id="flash">
+    <% if flash.now[:alert].present? %>
+      <%= render "layouts/flashes" %>
+    <% end %>
+  </div>
+  <p class="text-center">
+    Choose users to follow:
+  </p>
+  <%= render partial: "users/partials/users", locals: {users: @users} %>
+</div>

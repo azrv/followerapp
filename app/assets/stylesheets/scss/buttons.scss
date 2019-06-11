@@ -1,0 +1,35 @@
+.simple-button {
+  font-family: "Open Sans";
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 3px;
+  padding: 4px 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.follow-button {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.unfollow-button {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.unfollow-button:hover {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.unfollow-button:hover:after {
+  content: "Unfollow";
+}
+
+.unfollow-button:hover span {
+  display: none;
+}
